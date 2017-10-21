@@ -112,12 +112,13 @@ class YML
     public function getOffers()
     {
         $this->open();
+        $result = [];
 
         while ($this->read()) {
             if ($this->path === 'yml_catalog/shop/offers') {
                 while ($this->read()) {
                     if ($this->path === 'yml_catalog/shop/offers/offer') {
-                        yield $this->parseOffer();
+                        $result[] = $this->parseOffer();
                     } elseif ($this->path === 'yml_catalog/shop') {
                         break;
                     }
@@ -127,6 +128,8 @@ class YML
         }
 
         $this->close();
+
+        return $result;
     }
 
     /**
