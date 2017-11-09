@@ -109,9 +109,7 @@ class Shop
             $this->addError("Shop: incorrect value in attribute 'name'");
         }
 
-        if ($this->company === null) {
-            $this->addError("Shop: missing required attribute 'company'");
-        } elseif (!$this->company) {
+        if ($this->company === '') {
             $this->addError("Shop: incorrect value in attribute 'company'");
         }
 
