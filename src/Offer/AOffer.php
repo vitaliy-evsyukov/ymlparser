@@ -4,7 +4,6 @@ namespace LireinCore\YMLParser\Offer;
 
 use \LireinCore\YMLParser\TYML;
 use \LireinCore\YMLParser\TError;
-use function str_replace;
 
 abstract class AOffer
 {
