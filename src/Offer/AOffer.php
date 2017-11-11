@@ -4,6 +4,7 @@ namespace LireinCore\YMLParser\Offer;
 
 use \LireinCore\YMLParser\TYML;
 use \LireinCore\YMLParser\TError;
+use function str_replace;
 
 abstract class AOffer
 {
@@ -171,6 +172,7 @@ abstract class AOffer
         }
 
         if (!is_numeric($this->price)) {
+            $this->price = str_replace(',', '.', $this->price);
             $this->price = (string) ((int) $this->price);
         }
         if ($this->price === null) {
