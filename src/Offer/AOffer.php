@@ -170,9 +170,12 @@ abstract class AOffer
             $this->addError("Offer: incorrect value in attribute 'available'");
         }
 
+        if (!is_numeric($this->price)) {
+            $this->price = (string) ((int) $this->price);
+        }
         if ($this->price === null) {
             $this->addError("Offer: missing required attribute 'price'");
-        } elseif (!is_numeric($this->price) || (float)$this->price <= 0) {
+        } elseif ((float)$this->price <= 0) {
             $this->addError("Offer: incorrect value in attribute 'price'");
         }
 
